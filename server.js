@@ -10,6 +10,8 @@ const app = express();
 
 const db = new sqlite3.Database("./rin.db");
 
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -132,7 +134,6 @@ app.get("/", (req, res) => {
 res.send("Rin Chat Server Running");
 });
 
-
-app.listen(3000, () => {
-console.log("Server Started");
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
 });
