@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  background: #f0f2f5;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #344153;
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.input-area {
+  display: flex;
+  padding: 10px;
+  background: white;
+}
+
+#message {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid;
+}
+
+#send {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid;
+}
+
+.chat-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 18px;
+  word-break: break-word;
+}
+
+/* AIメッセージの横並び */
+.ai-row {
+  display: flex;
+  align-items: flex-start; 
+  margin: 6px 0;
+}
+
+/* アイコン */
+.ai-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+  margin-top: 2px;
+
+  background-image: url("./picture/rin.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 吹き出し（AI） */
+.ai-bubble {
+  background: white;
+  padding: 10px 12px;
+  border-radius: 18px;
+  max-width: 75%;
+  word-break: break-word;
+}
+
+.user {
+  align-self: flex-end;
+  background: #88ffba;
+  color: rgb(53, 53, 53);
+}
+
+.assistant {
+  align-self: flex-start;
+  background: white;
+  border: 1px solid #ddd;
+}

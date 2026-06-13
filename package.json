@@ -1,0 +1,20 @@
+{
+  "name": "gonchichat",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "openai": "^5.23.2",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11"
+  },
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
