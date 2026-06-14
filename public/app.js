@@ -4,6 +4,9 @@ const sendButton = document.getElementById("send");
 
 let userId = localStorage.getItem("userId");
 
+// 画面の最後会話日付
+let lastDisplayedDate = "";
+
 //テスト★
 //addMessage("てすと★", false)
 
@@ -37,6 +40,15 @@ async function loadHistory() {
 function addMessage(text, isUser) {
 
   if (isUser) {
+
+    // 日付を画面に表示
+    const today = new Date().toISOString().split("T")[0];
+
+    if (today !== lastDisplayedDate) {
+      addDateSeparator(today);
+      lastDisplayedDate = today;
+    }
+
     const div = document.createElement("div");
     div.className = "message user";
     div.textContent = text;
@@ -97,10 +109,22 @@ async function sendMessage() {
   addMessage(data.reply, false);
 }
 
+function addDateSeparator(dateText) {
+  const div = document.createElement("div");
+  div.className = "date-separator";
+
+  const span = document.createElement("span");
+  span.textContent = dateText;
+
+  div.appendChild(span);
+
+  chat.appendChild(div);
+}
+
 sendButton.addEventListener("click", sendMessage);
 
 messageInput.addEventListener("keydown", (event) => {
-if (event.key === "Enter") {
-sendMessage();
-}
+  if (event.key === "Enter") {
+  sendMessage();
+  }
 });
