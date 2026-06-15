@@ -2,6 +2,8 @@ const chat = document.getElementById("chat");
 const messageInput = document.getElementById("message");
 const sendButton = document.getElementById("send");
 
+const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+
 let userId = localStorage.getItem("userId");
 
 // 画面の最後会話日付
@@ -42,7 +44,9 @@ function addMessage(text, isUser) {
   if (isUser) {
 
     // 日付を画面に表示
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Date().toLocaleDateString("sv-SE", {
+      timeZone: "Asia/Tokyo",
+    });
 
     if (today !== lastDisplayedDate) {
       addDateSeparator(today);
@@ -123,8 +127,11 @@ function addDateSeparator(dateText) {
 
 sendButton.addEventListener("click", sendMessage);
 
-messageInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
+messageInput.addEventListener("keydown", (e) => {
+  if (isMobile) return;
+
+  if (e.key !== "Enter" || e.shiftKey) return;
+  
+  e.preventDefault();
   sendMessage();
-  }
 });
